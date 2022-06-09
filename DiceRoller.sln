@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRoller", "DiceRoller\DiceRoller.csproj", "{A5846716-A766-4D58-946F-4A8816871963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller", "DiceRoller\DiceRoller.csproj", "{A5846716-A766-4D58-946F-4A8816871963}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRoller.Model", "DiceRoll.Model\DiceRoller.Model.csproj", "{4A9349B6-AA00-42E7-9F72-29F315B5EA41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller.Model", "DiceRoll.Model\DiceRoller.Model.csproj", "{4A9349B6-AA00-42E7-9F72-29F315B5EA41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{4D4B9EDC-8585-4D60-95A4-42EACDB4C54E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRoller.VewModel", "DaceRoll.VewModel\DiceRoller.VewModel.csproj", "{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller.VewModel", "DaceRoll.VewModel\DiceRoller.VewModel.csproj", "{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{4A9349B6-AA00-42E7-9F72-29F315B5EA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A9349B6-AA00-42E7-9F72-29F315B5EA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A9349B6-AA00-42E7-9F72-29F315B5EA41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D4B9EDC-8585-4D60-95A4-42EACDB4C54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D4B9EDC-8585-4D60-95A4-42EACDB4C54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D4B9EDC-8585-4D60-95A4-42EACDB4C54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D4B9EDC-8585-4D60-95A4-42EACDB4C54E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU

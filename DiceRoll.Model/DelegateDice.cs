@@ -18,7 +18,7 @@ namespace DiceRoller.Model
 
         public int RollDice()
         {
-            return _rnd.Next(1, Dicemension);
+            return _rnd.Next(1, Dicemension + 1);
         }
       
     }

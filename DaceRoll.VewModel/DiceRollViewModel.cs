@@ -1,26 +1,38 @@
-﻿using System.Windows.Input;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 using DiceRoller.Model;
+using DiceRoller.Model.Exceptions;
+using System.Runtime.CompilerServices;
+
 namespace DiceRoller.VewModel
 {
-    public class DiceRollViewModel
+    public class DiceRollViewModel: INotifyPropertyChanged
     {
         private readonly DiceRoll dice = new DiceRoll();
 
         public string Dice4Number { get; set; } = "(D4)";
-        public string Dice6Number { get; set; } = "(D6)";
-        public string Dice8Number { get; set; } = "(D8)";
-        public string Dice10Number { get; set; } = "(D10)";
-        public string Dice12Number { get; set; } = "(D12)";
-        public string Dice20Number { get; set; } = "(D20)";
-        public string Dice100Number { get; set; } = "(D100)";
+        public string result { get; set; } = "(D4)";
 
-        public string Dice4Result { get; set; } = "(D4)";
-        public string Dice6Result { get; set; } = "(D6)";
-        public string Dice8Result { get; set; } = "(D8)";
-        public string Dice10Result { get; set; } = "(D10)";
-        public string Dice12Result { get; set; } = "(D12)";
-        public string Dice20Result { get; set; } = "(D20)";
-        public string Dice100Result { get; set; } = "(D100)";
+        public bool isError {
+
+            get => isError;
+            set
+            {
+                isError = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string Result
+        {
+            get => result;
+            set
+            {
+                result = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         public ICommand RollCommand { get;  }
 
@@ -31,8 +43,28 @@ namespace DiceRoller.VewModel
 
         private void Roll()
         {
+            try
+            {
+                for (int i = 0; i < int.Parse(Dice4Number); i++)
+                {
+                    Result = dice.Roll("D4").ToString();
+                }
+            }
+            catch (Exception exception)
+            {
+                result = exception.Message;
+                isError = true;
+            }
 
         }
+
+        private void RaisePropertyChanged([CallerMemberName] string? property = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        }
+
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
 
     }

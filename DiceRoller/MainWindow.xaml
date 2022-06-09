@@ -25,41 +25,41 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <!--<ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>-->
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column ="0" Style="{StaticResource CommonStyle}">Type of dice</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column ="1" Style="{StaticResource CommonStyle}">D4</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column ="2" Style="{StaticResource CommonStyle}">D6</TextBlock>
+        <!--<TextBlock Grid.Row="0" Grid.Column ="2" Style="{StaticResource CommonStyle}">D6</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column ="3" Style="{StaticResource CommonStyle}">D8</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column ="4" Style="{StaticResource CommonStyle}">D10</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column ="5" Style="{StaticResource CommonStyle}">D12</TextBlock>
         <TextBlock Grid.Row="0" Grid.Column ="6" Style="{StaticResource CommonStyle}">D20</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column ="7" Style="{StaticResource CommonStyle}">D100</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column ="7" Style="{StaticResource CommonStyle}">D100</TextBlock>-->
 
         <TextBlock Grid.Row="1" Style="{StaticResource CommonStyle}">Number of dice</TextBlock>
         <TextBox Grid.Row="1" Grid.Column ="1" Style="{StaticResource CommonStyle}" Text="{Binding Dice4Number}"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column ="2" Style="{StaticResource CommonStyle}" Text="{Binding Dice6Number}"></TextBox>
+        <!--<TextBox Grid.Row="1" Grid.Column ="2" Style="{StaticResource CommonStyle}" Text="{Binding Dice6Number}"></TextBox>
         <TextBox Grid.Row="1" Grid.Column ="3" Style="{StaticResource CommonStyle}" Text="{Binding Dice8Number}"></TextBox>
         <TextBox Grid.Row="1" Grid.Column ="4" Style="{StaticResource CommonStyle}" Text="{Binding Dice10Number}"></TextBox>
         <TextBox Grid.Row="1" Grid.Column ="5" Style="{StaticResource CommonStyle}" Text="{Binding Dice12Number}"></TextBox>
         <TextBox Grid.Row="1" Grid.Column ="6" Style="{StaticResource CommonStyle}" Text="{Binding Dice20Number}"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column ="7" Style="{StaticResource CommonStyle}" Text="{Binding Dice100Number}"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column ="7" Style="{StaticResource CommonStyle}" Text="{Binding Dice100Number}"></TextBox>-->
 
-        <Button Grid.Row="2" Style="{StaticResource CommonStyle}">Roll</Button>
-        <TextBlock Grid.Row="2" Grid.Column ="1" Style="{StaticResource CommonStyle}" Text="{Binding Dice4Result}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column ="2" Style="{StaticResource CommonStyle}" Text="{Binding Dice6Result}"></TextBlock>
+        <Button Grid.Row="2" Style="{StaticResource CommonStyle}" Command="{Binding RollCommand}">Roll</Button>
+        <TextBlock Grid.Row="2" Grid.Column ="1" Style="{StaticResource CommonStyle}" Text="{Binding result}"></TextBlock>
+        <!--<TextBlock Grid.Row="2" Grid.Column ="2" Style="{StaticResource CommonStyle}" Text="{Binding Dice6Result}"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column ="3" Style="{StaticResource CommonStyle}" Text="{Binding Dice8Result}"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column ="4" Style="{StaticResource CommonStyle}" Text="{Binding Dice10Result}"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column ="5" Style="{StaticResource CommonStyle}" Text="{Binding Dice12Result}"></TextBlock>
         <TextBlock Grid.Row="2" Grid.Column ="6" Style="{StaticResource CommonStyle}" Text="{Binding Dice20Result}"></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column ="7" Style="{StaticResource CommonStyle}" Text="{Binding Dice100Result}"></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column ="7" Style="{StaticResource CommonStyle}" Text="{Binding Dice100Result}"></TextBlock>-->
         <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource CommonStyle}">Clear all</Button>
 
     </Grid>

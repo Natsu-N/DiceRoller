@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiceRoller.Model.Exceptions
 {
-    internal class DiceException: Exception
+    public class DiceException: Exception
     {
         protected DiceException() : base()
         {
