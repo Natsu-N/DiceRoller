@@ -45,12 +45,9 @@ namespace DiceRoller.VewModel
         {
             try
             {
-                for (int i = 0; i < int.Parse(Dice4Number); i++)
-                {
-                    Result = dice.Roll("D4").ToString();
-                }
+                Result = dice.Roll("D4", Dice4Number);
             }
-            catch (Exception exception)
+            catch (DiceException exception)
             {
                 result = exception.Message;
                 isError = true;

@@ -1,10 +1,11 @@
-﻿using DiceRoller.Model.Exceptions;
+﻿using System.Runtime.Serialization.Formatters;
+using DiceRoller.Model.Exceptions;
 
 namespace DiceRoller.Model
 {
     public class DiceRoll
     {
-        private  readonly  Random _rnd = new Random();
+        private readonly Random _rnd = new Random();
         private Dictionary<string, IDice> DiceSet = new()
         {
             {"D4", new DelegateDice(4)},
@@ -16,14 +17,39 @@ namespace DiceRoller.Model
             {"D100", new DelegateDice(100)},
         };
 
-        public int Roll(string diceKey)
+        public string Roll(string? diceKey, string number)
+        {
+            var resultSet = "";
+            var dice = GetDice(diceKey);
+            var numberOfDice = GetDiceNumber(number);
+            for (int i = 0; i < numberOfDice; i++)
+            {
+                if (DiceSet.TryGetValue(diceKey, out var result))
+                {
+                    resultSet += result.RollDice() + "\n";
+                }
+            }
+            return resultSet;
+        }
+
+        private int GetDiceNumber(string number)
+        {
+            if (int.TryParse(number, out var result))
+            {
+                return result;
+            }
+
+            throw new NonNumericArgumentException(number);
+        }
+
+        private IDice GetDice(string? diceKey)
         {
             if (DiceSet.TryGetValue(diceKey, out var result))
             {
-                return result.RollDice();
+                return result;
             }
-
             throw new DiceNotFoundException(diceKey);
         }
+
     }
 }
