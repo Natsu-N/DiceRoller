@@ -10,10 +10,11 @@ namespace DiceRoller.VewModel
     {
         private readonly DiceRoll dice = new DiceRoll();
 
-        public string Dice4Number { get; set; } = "(D4)";
+        public string diceNumber { get; set; } = "(D4)";
         public string result { get; set; } = "(D4)";
+        public bool isError;
 
-        public bool isError {
+        public bool IsError {
 
             get => isError;
             set
@@ -43,14 +44,15 @@ namespace DiceRoller.VewModel
 
         private void Roll()
         {
+            IsError = false;
             try
             {
-                Result = dice.Roll("D4", Dice4Number);
+                Result = dice.Roll("D4", diceNumber);
             }
             catch (DiceException exception)
             {
-                result = exception.Message;
-                isError = true;
+                Result = exception.Message;
+                IsError = true;
             }
 
         }
