@@ -8,10 +8,18 @@ namespace DiceRoller.VewModel
 {
     public class DiceRollViewModel: INotifyPropertyChanged
     {
+        public List<string> nameList { get; set; }= new List<string>
+        {
+            "D4", "D6", "D8", "D10", "D12", "D20", "D100"
+        };
+
         private readonly DiceRoll dice = new DiceRoll();
 
-        public string diceNumber { get; set; } = "(D4)";
+        public string diceNumber { get; set; } = "0";
         public string result { get; set; } = "(D4)";
+
+
+
         public bool isError;
 
         public bool IsError {
