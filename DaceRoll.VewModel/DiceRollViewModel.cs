@@ -6,73 +6,38 @@ using System.Runtime.CompilerServices;
 
 namespace DiceRoller.VewModel
 {
-    public class DiceRollViewModel: INotifyPropertyChanged
+    public class DiceRollViewModel
     {
         public List<string> nameList { get; set; }= new List<string>
         {
             "D4", "D6", "D8", "D10", "D12", "D20", "D100"
         };
 
-        private readonly DiceRoll dice = new DiceRoll();
-
-        public string diceNumber { get; set; } = "0";
-        public string result { get; set; } = "(D4)";
-
-
-
-        public bool isError;
-
-        public bool IsError {
-
-            get => isError;
-            set
-            {
-                isError = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Result
+        public List<ItemDice> itemDiceList { get; set; } = new List<ItemDice>()
         {
-            get => result;
-            set
-            {
-                result = value;
-                RaisePropertyChanged();
-            }
-        }
+            new ItemDice("D4", "0"),
+            new ItemDice("D6", "0"),
+            new ItemDice("D8", "0"),
+            new ItemDice("D10", "0"),
+            new ItemDice("D12", "0"),
+            new ItemDice("D20", "0"),
+            new ItemDice("D100", "0"),
+        };
+
+        private readonly DiceRoll dice = new DiceRoll();
 
 
         public ICommand RollCommand { get;  }
 
         public DiceRollViewModel()
         {
-            RollCommand = new DelegateCommand(this.Roll);
+            RollCommand = new DelegateCommand(Roll);
         }
 
-        private void Roll()
+        public void Roll()
         {
-            IsError = false;
-            try
-            {
-                Result = dice.Roll("D4", diceNumber);
-            }
-            catch (DiceException exception)
-            {
-                Result = exception.Message;
-                IsError = true;
-            }
 
         }
-
-        private void RaisePropertyChanged([CallerMemberName] string? property = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
-
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
 
     }
 }

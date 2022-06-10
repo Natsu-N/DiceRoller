@@ -29,17 +29,14 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column ="0" Style="{StaticResource CommonStyle}">Type of dice</TextBlock>
-        <!--<TextBlock Grid.Row="0" Grid.Column ="1" Style="{StaticResource CommonStyle}">D4</TextBlock>-->
 
-
-        <ItemsControl Grid.Column="1" ItemsSource="{Binding Path=nameList}">
+        <ListBox Grid.Column="1" ItemsSource="{Binding itemDiceList}" DisplayMemberPath="name">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid  Columns="7"></UniformGrid>
+                    <UniformGrid Columns="7"></UniformGrid>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-        </ItemsControl>
-
+        </ListBox>
 
         <TextBlock Grid.Row="1" Style="{StaticResource CommonStyle}">Number of dice</TextBlock>
         <TextBox Grid.Row="1" Grid.Column ="1" Style="{StaticResource CommonStyle}" Text="{Binding diceNumber}"></TextBox>
