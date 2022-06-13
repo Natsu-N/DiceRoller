@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DaceRoll.VewModel\DiceRoller.VewModel.csproj" />
+	  <ProjectReference Include="..\DiceRoll.VewModel\DiceRoller.VewModel.csproj" />
   </ItemGroup>
 
 </Project>
