@@ -26,7 +26,7 @@ namespace DiceRoller.Model
             {
                 if (DiceSet.TryGetValue(diceKey, out var result))
                 {
-                    resultSet += result.RollDice() + "\n";
+                    resultSet += result.RollDice() + "  \n";
                 }
             }
             return resultSet;
@@ -36,7 +36,11 @@ namespace DiceRoller.Model
         {
             if (int.TryParse(number, out var result))
             {
-                return result;
+                if (result >= 0)
+                {
+                    return result;
+                }
+                throw new NumberLessThenZeroException(number);
             }
 
             throw new NonNumericArgumentException(number);
