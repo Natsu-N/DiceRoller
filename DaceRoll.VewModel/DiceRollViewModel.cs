@@ -36,7 +36,10 @@ namespace DiceRoller.VewModel
 
         public void Roll()
         {
-
+            foreach (var item in itemDiceList)
+            {
+                item.Roll();
+            }
         }
 
     }

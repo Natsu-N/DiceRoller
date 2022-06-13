@@ -10,7 +10,7 @@ namespace DiceRoller.VewModel
     {
         public string name { get; set; }
         public string diceNumber { get; set; } = "0";
-        private readonly DiceRoll dice = new DiceRoll();
+        private readonly DiceRoll dice = new();
 
         public string result { get; set; }
         public string Result
@@ -42,7 +42,7 @@ namespace DiceRoller.VewModel
         }
 
 
-        private void Roll()
+        public void Roll()
         {
             IsError = false;
             try

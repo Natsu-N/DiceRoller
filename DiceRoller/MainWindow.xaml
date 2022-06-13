@@ -39,13 +39,37 @@
         </ListBox>
 
         <TextBlock Grid.Row="1" Style="{StaticResource CommonStyle}">Number of dice</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column ="1" Style="{StaticResource CommonStyle}" Text="{Binding diceNumber}"></TextBox>
+        <ListBox Grid.Row="1" Grid.Column ="1" ItemsSource="{Binding itemDiceList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Text="{Binding Path=diceNumber}"></TextBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
 
         <Button Grid.Row="2" Style="{StaticResource CommonStyle}" Command="{Binding RollCommand}">Roll</Button>
-        <ScrollViewer Grid.Row="2" Grid.Column ="1">
+        <!--<ScrollViewer Grid.Row="2" Grid.Column ="1">
             <TextBlock Style="{StaticResource CommonStyle}" Text="{Binding result}"/>
-        </ScrollViewer>
+        </ScrollViewer>-->
+        <ListBox Grid.Row="2" Grid.Column ="1" ItemsSource="{Binding itemDiceList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=result}"></TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
 
         <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource CommonStyle}">Clear all</Button>
     </Grid>
