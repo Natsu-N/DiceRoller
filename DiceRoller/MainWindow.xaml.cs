@@ -24,5 +24,11 @@ namespace DiceRoller
         {
             InitializeComponent();
         }
+
+        private void UIElement_OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            
+            //throw new NotImplementedException();
+        }
     }
 }

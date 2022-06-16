@@ -1,13 +1,12 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using DiceRoller.Model;
-using DiceRoller.Model.Exceptions;
-using System.Runtime.CompilerServices;
+
 
 namespace DiceRoller.VewModel
 {
     public class DiceRollViewModel
     {
+
         public List<string> nameList { get; set; }= new List<string>
         {
             "D4", "D6", "D8", "D10", "D12", "D20", "D100"
@@ -24,10 +23,7 @@ namespace DiceRoller.VewModel
             new ItemDice("D100", "0"),
         };
 
-        private readonly DiceRoll dice = new DiceRoll();
-
-
-        public ICommand RollCommand { get;  }
+        public ICommand RollCommand { get; }
 
         public DiceRollViewModel()
         {

@@ -35,10 +35,25 @@ namespace DiceRoller.VewModel
             }
         }
 
+        public bool isSelect = false;
+        public bool IsSelect
+        {
+            get => isSelect;
+            set
+            {
+                isSelect = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ICommand IsResultSelectCommand { get; }
+
         public ItemDice(string name, string diceNumber)
         {
             this.name = name;
             this.diceNumber = diceNumber;
+
+            IsResultSelectCommand = new DelegateCommand(IsResultSelect);
         }
 
 
@@ -55,6 +70,16 @@ namespace DiceRoller.VewModel
                 IsError = true;
             }
 
+        }
+
+        public void IsResultSelect()
+        {
+            if (IsSelect)
+            {
+                IsSelect = false;
+            }
+
+            IsSelect = true;
         }
 
         private void RaisePropertyChanged([CallerMemberName] string? property = null)
