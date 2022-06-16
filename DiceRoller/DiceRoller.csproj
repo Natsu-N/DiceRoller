@@ -8,7 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\dndBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <ProjectReference Include="..\DiceRoll.VewModel\DiceRoller.VewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Image\dndBackground.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
