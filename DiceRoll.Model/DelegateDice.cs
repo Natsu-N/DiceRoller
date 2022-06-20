@@ -9,16 +9,16 @@ namespace DiceRoller.Model
     internal class DelegateDice: IDice
     {
         private readonly Random _rnd = new Random();
-        private readonly int Dicemension;
+        private readonly int DiceDimension;
 
         public DelegateDice(int args)
         {
-            this.Dicemension = args;
+            this.DiceDimension = args;
         }
 
         public int RollDice()
         {
-            return _rnd.Next(1, Dicemension + 1);
+            return _rnd.Next(1, DiceDimension + 1);
         }
       
     }

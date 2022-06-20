@@ -4,21 +4,21 @@ namespace DiceRoller.VewModel
 {
     internal class DelegateCommand: ICommand
     {
-        private readonly Action _action;
+        private readonly Action action;
 
         public DelegateCommand(Action action)
         {
-            this._action = action;
+            this.action = action;
         }
 
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object? parameter)
         {
             return true;
         }
 
-        public void Execute(object parameter)
+        public void Execute(object? parameter)
         {
-            _action();
+            action();
         }
 
         public event EventHandler? CanExecuteChanged;

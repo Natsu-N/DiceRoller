@@ -8,9 +8,9 @@ namespace DiceRoller.VewModel
 {
     public class ItemDice: INotifyPropertyChanged
     {
-        public string name { get; set; }
-        public string diceNumber { get; set; } = "0";
-        private readonly DiceRoll dice = new();
+        public string DiceName { get; set; }
+        public string DiceNumber { get; set; } = "0";
+        private readonly DiceRoll Dice = new();
 
         public string result { get; set; }
         public string Result
@@ -35,25 +35,10 @@ namespace DiceRoller.VewModel
             }
         }
 
-        public bool isSelect = false;
-        public bool IsSelect
+        public ItemDice(string name, string number)
         {
-            get => isSelect;
-            set
-            {
-                isSelect = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public ICommand IsResultSelectCommand { get; }
-
-        public ItemDice(string name, string diceNumber)
-        {
-            this.name = name;
-            this.diceNumber = diceNumber;
-
-            IsResultSelectCommand = new DelegateCommand(IsResultSelect);
+            DiceName = name;
+            DiceNumber = number;
         }
 
 
@@ -62,7 +47,7 @@ namespace DiceRoller.VewModel
             IsError = false;
             try
             {
-                Result = dice.Roll(name, diceNumber);
+                Result = Dice.Roll(DiceName, DiceNumber);
             }
             catch (DiceException exception)
             {
@@ -72,24 +57,12 @@ namespace DiceRoller.VewModel
 
         }
 
-        public void IsResultSelect()
-        {
-            if (IsSelect)
-            {
-                IsSelect = false;
-            }
-
-            IsSelect = true;
-        }
-
         private void RaisePropertyChanged([CallerMemberName] string? property = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
-
         public event PropertyChangedEventHandler? PropertyChanged;
-
 
     }
 }

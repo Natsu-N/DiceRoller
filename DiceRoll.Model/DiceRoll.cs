@@ -6,7 +6,7 @@ namespace DiceRoller.Model
     public class DiceRoll
     {
         private readonly Random _rnd = new Random();
-        private Dictionary<string, IDice> DiceSet = new()
+        private readonly Dictionary<string, IDice> DiceSet = new()
         {
             {"D4", new DelegateDice(4)},
             {"D6", new DelegateDice(6)},
@@ -17,17 +17,14 @@ namespace DiceRoller.Model
             {"D100", new DelegateDice(100)},
         };
 
-        public string Roll(string? diceKey, string number)
+        public string Roll(string diceKey, string number)
         {
             var resultSet = "";
             var dice = GetDice(diceKey);
             var numberOfDice = GetDiceNumber(number);
             for (int i = 0; i < numberOfDice; i++)
             {
-                if (DiceSet.TryGetValue(diceKey, out var result))
-                {
-                    resultSet += result.RollDice() + "  \n";
-                }
+                resultSet += dice.RollDice() + "  \n";
             }
             return resultSet;
         }
@@ -40,13 +37,13 @@ namespace DiceRoller.Model
                 {
                     return result;
                 }
-                throw new NumberLessThenZeroException(number);
+                throw new NumberLessThanZeroException(number);
             }
 
             throw new NonNumericArgumentException(number);
         }
 
-        private IDice GetDice(string? diceKey)
+        private IDice GetDice(string diceKey)
         {
             if (DiceSet.TryGetValue(diceKey, out var result))
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DiceRoller.Model.Exceptions
 {
-    public sealed class NumberLessThenZeroException : DiceException
+    public sealed class NumberLessThanZeroException : DiceException
     {
-        public NumberLessThenZeroException(string value) : base($"Argument has less the zero value '{value}'.")
+        public NumberLessThanZeroException(string value) : base($"Argument has less than zero value '{value}'.")
         {
         }
     }

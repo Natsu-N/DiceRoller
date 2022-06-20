@@ -6,26 +6,30 @@
         xmlns:local="clr-namespace:DiceRoller"
         xmlns:vm="clr-namespace:DiceRoller.VewModel;assembly=DiceRoller.VewModel"
         mc:Ignorable="d"
-        Title="DiceRoller" Height="250" Width="440" ResizeMode="CanResizeWithGrip">
+        Title="DiceRoller" Height="250" Width="440" MinHeight="250" MinWidth="440" MaxHeight="500" MaxWidth="880">
     <Window.DataContext>
         <vm:DiceRollViewModel/>
     </Window.DataContext>
+
     <Window.Resources>
-        <Style TargetType="TextBlock" x:Key="Result">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="White"></Setter>
-                </Trigger>
-                <!--<DataTrigger Binding="{Binding IsSelect}" Value="true">
-                    <Setter Property="Foreground" Value="Green"></Setter>
-                </DataTrigger>-->
-            </Style.Triggers>
-        </Style>
+        <SolidColorBrush x:Key="OpacityBrush" Opacity="0.2" Color="AliceBlue" ></SolidColorBrush>
 
         <Style x:Key="CommonStyle">
             <Setter Property="Control.Margin" Value="10"></Setter>
             <Setter Property="Control.Padding" Value="10"></Setter>
             <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="Result">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"></Setter>
+                </Trigger>
+                <DataTrigger Binding="{Binding itemDiceList[].IsError}" Value="true">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <Style TargetType="Button" x:Key="Animation" BasedOn="{StaticResource CommonStyle}">
@@ -34,7 +38,7 @@
                     <EventTrigger.Actions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15" Duration="0:0:1"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15" Duration="0:0:0.5"></DoubleAnimation>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger.Actions>
@@ -43,7 +47,7 @@
                     <EventTrigger.Actions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="10" Duration="0:0:1"></DoubleAnimation>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="10" Duration="0:0:0.5"></DoubleAnimation>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger.Actions>
@@ -51,11 +55,10 @@
             </Style.Triggers>
         </Style>
 
-        <SolidColorBrush x:Key="OpacityBrush" Opacity="0.2" Color="AliceBlue" ></SolidColorBrush>
-
     </Window.Resources>
+
     <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill">
-        <Grid>
+        <Grid Height="250" Width="440">
             <Grid.Background>
                 <ImageBrush ImageSource="Image/dndBackground.jpg"></ImageBrush>
             </Grid.Background>
@@ -67,7 +70,8 @@
             <Button Grid.Row="1" Style="{StaticResource Animation}" 
                 Command="{Binding RollCommand}" 
                 Background="{StaticResource OpacityBrush}"
-                >Roll</Button>
+                IsDefault="True"
+                Content="Roll"/>
 
             <ListBox Grid.Row="0" Style="{StaticResource CommonStyle}" Background="{StaticResource OpacityBrush}" ItemsSource="{Binding itemDiceList}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ItemsControl.ItemsPanel>
@@ -79,21 +83,20 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition ></RowDefinition>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition />
                             </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0"  Text="{Binding name}"></TextBlock>
-                            <TextBox Grid.Row="1" Text="{Binding Path=diceNumber}"></TextBox>
+
+                            <TextBlock Grid.Row="0"  Text="{Binding name}"/>
+                            <TextBox Grid.Row="1" Text="{Binding Path=DiceNumber, UpdateSourceTrigger=PropertyChanged}"/>
                             <ScrollViewer  Grid.Row="2" MaxHeight="75">
-                                <TextBlock Text="{Binding Path=result}" Style="{StaticResource Result}"></TextBlock>
+                                <TextBlock Text="{Binding Path=result}" Style="{StaticResource Result}"/>
                             </ScrollViewer>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-
-
         </Grid>
     </Viewbox>
 </Window>
