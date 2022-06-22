@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using DiceRoller.Model.Exceptions;
+﻿using DiceRoller.Model.Exceptions;
 
 namespace DiceRoller.Model
 {
