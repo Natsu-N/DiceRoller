@@ -26,7 +26,7 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="White"></Setter>
                 </Trigger>
-                <DataTrigger Binding="{Binding itemDiceList[].IsError}" Value="true">
+                <DataTrigger Binding="{Binding ItemDiceList[].IsError}" Value="true">
                     <Setter Property="Foreground" Value="Red"></Setter>
                 </DataTrigger>
             </Style.Triggers>
@@ -57,7 +57,7 @@
 
         <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
             <Border BorderBrush="AliceBlue" BorderThickness="3" Opacity="0.3" CornerRadius="2"
-                    Background="AliceBlue" TextBlock.Foreground="Black">
+                    Background="AliceBlue" TextBlock.Foreground="Red" >
                 <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"></ContentPresenter>
             </Border>
         </ControlTemplate>
@@ -80,7 +80,7 @@
                 Content="Roll"
                 Template="{StaticResource ButtonTemplate}"/>
 
-            <ListBox Grid.Row="0" Style="{StaticResource CommonStyle}" Background="{StaticResource OpacityBrush}" ItemsSource="{Binding itemDiceList}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <ListBox Grid.Row="0" Style="{StaticResource CommonStyle}" Background="{StaticResource OpacityBrush}" ItemsSource="{Binding ItemDiceList}" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="7"></UniformGrid>
@@ -95,10 +95,10 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0"  Text="{Binding name}"/>
+                            <TextBlock Grid.Row="0"  Text="{Binding DiceName}"/>
                             <TextBox Grid.Row="1" Text="{Binding Path=DiceNumber, UpdateSourceTrigger=PropertyChanged}"/>
                             <ScrollViewer  Grid.Row="2" MaxHeight="75">
-                                <TextBlock Text="{Binding Path=result}" Style="{StaticResource Result}"/>
+                                <TextBlock Text="{Binding Path=Result}" Style="{StaticResource Result}"/>
                             </ScrollViewer>
                         </Grid>
                     </DataTemplate>

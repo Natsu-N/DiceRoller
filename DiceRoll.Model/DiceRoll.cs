@@ -5,7 +5,6 @@ namespace DiceRoller.Model
 {
     public class DiceRoll
     {
-        private readonly Random _rnd = new Random();
         private readonly Dictionary<string, IDice> DiceSet = new()
         {
             {"D4", new DelegateDice(4)},

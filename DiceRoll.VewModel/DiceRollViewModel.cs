@@ -6,7 +6,7 @@ namespace DiceRoller.VewModel
 {
     public class DiceRollViewModel
     {
-        public List<ItemDice> itemDiceList { get; set; } = new List<ItemDice>()
+        public List<ItemDice> ItemDiceList { get; set; } = new List<ItemDice>()
         {
             new ItemDice("D4", "0"),
             new ItemDice("D6", "0"),
@@ -26,7 +26,7 @@ namespace DiceRoller.VewModel
 
         public void Roll()
         {
-            foreach (var item in itemDiceList)
+            foreach (var item in ItemDiceList)
             {
                 item.Roll();
             }

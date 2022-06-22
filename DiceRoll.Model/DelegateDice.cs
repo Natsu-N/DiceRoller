@@ -8,17 +8,17 @@ namespace DiceRoller.Model
 {
     internal class DelegateDice: IDice
     {
-        private readonly Random _rnd = new Random();
-        private readonly int DiceDimension;
+        private readonly Random rnd = new Random();
+        private readonly int diceDimension;
 
-        public DelegateDice(int args)
+        public DelegateDice(int diceDimension)
         {
-            this.DiceDimension = args;
+            this.diceDimension = diceDimension;
         }
 
         public int RollDice()
         {
-            return _rnd.Next(1, DiceDimension + 1);
+            return rnd.Next(1, diceDimension + 1);
         }
       
     }

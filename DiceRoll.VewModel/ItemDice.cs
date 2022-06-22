@@ -12,28 +12,33 @@ namespace DiceRoller.VewModel
         public string DiceNumber { get; set; } = "0";
         private readonly DiceRoll Dice = new();
 
-        public string result { get; set; }
-        public string Result
-        {
-            get => result;
-            set
-            {
-                result = value;
-                RaisePropertyChanged();
-            }
-        }
+        public string Result { get; set; }
 
-        public bool isError;
-        public bool IsError
-        {
+        public bool IsError { get; set; }
 
-            get => isError;
-            set
-            {
-                isError = value;
-                RaisePropertyChanged();
-            }
-        }
+
+        //public string result { get; set; }
+        //public string Result
+        //{
+        //    get => result;
+        //    set
+        //    {
+        //        result = value;
+        //        RaisePropertyChanged();
+        //    }
+        //}
+
+        //public bool isError;
+        //public bool IsError
+        //{
+
+        //    get => isError;
+        //    set
+        //    {
+        //        isError = value;
+        //        RaisePropertyChanged();
+        //    }
+        //}
 
         public ItemDice(string name, string number)
         {
@@ -55,11 +60,6 @@ namespace DiceRoller.VewModel
                 IsError = true;
             }
 
-        }
-
-        private void RaisePropertyChanged([CallerMemberName] string? property = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
