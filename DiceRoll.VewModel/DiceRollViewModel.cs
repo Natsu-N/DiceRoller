@@ -31,6 +31,5 @@ namespace DiceRoller.VewModel
                 item.Roll();
             }
         }
-
     }
 }
