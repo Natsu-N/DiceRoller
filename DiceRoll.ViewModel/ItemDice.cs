@@ -2,6 +2,7 @@
 using DiceRoller.Model;
 using DiceRoller.Model.Exceptions;
 using System.Linq;
+using DiceRoller.UiServices;
 using Array = System.Array;
 
 namespace DiceRoller.ViewModel
@@ -13,9 +14,6 @@ namespace DiceRoller.ViewModel
         private readonly DiceRoll dice = new();
 
         public int[] Result { get; private set; }
-        public string? ResultError { get; private set; }
-
-        public bool IsError { get; private set; }
 
         public ItemDice(string name, string number)
         {
@@ -25,18 +23,15 @@ namespace DiceRoller.ViewModel
             Result = Array.Empty<int>();
         }
 
-        public void Roll()
+        public void Roll(IMessageService messageService)
         {
-            IsError = false;
             try
             {
                 Result = dice.Roll(DiceName, DiceNumber).ToArray();
             }
             catch (DiceException exception)
             {
-                Result = Array.Empty<int>();
-                ResultError = exception.Message;
-                IsError = true;
+                messageService.ShowErrorMessage(exception.Message);
             }
         }
 

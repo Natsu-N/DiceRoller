@@ -5,11 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:DiceRoller.ViewModel;assembly=DiceRoller.ViewModel"
         mc:Ignorable="d"
-        Title="DiceRoller" Height="250" Width="440" MinHeight="250" MinWidth="440" MaxHeight="500" MaxWidth="880">
-    <Window.DataContext>
-        <vm:DiceRollViewModel />
-    </Window.DataContext>
-
+        Title="DiceRoller" Height="250" Width="440" MinHeight="250" MinWidth="440" MaxHeight="500" MaxWidth="880"
+        d:DataContext="{d:DesignInstance vm:DiceRollViewModel}"
+>
+    
     <Window.Resources>
         <ResourceDictionary Source="WindowStyles.xaml" />
     </Window.Resources>
@@ -48,8 +47,8 @@
 
                             <TextBlock Grid.Row="0"  Text="{Binding DiceName}"/>
                             <TextBox Grid.Row="1" Text="{Binding Path=DiceNumber, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ScrollViewer  Grid.Row="2" MaxHeight="75">
-                                <ItemsControl ItemsSource="{Binding Result}" />
+                            <ScrollViewer  Grid.Row="2" MaxHeight="75" Style="{StaticResource ResultScrollViewer}">
+                                <ItemsControl ItemsSource="{Binding Result}" Style="{StaticResource Result}"/>
                             </ScrollViewer>
                         </Grid>
                     </DataTemplate>

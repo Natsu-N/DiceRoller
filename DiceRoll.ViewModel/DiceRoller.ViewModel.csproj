@@ -9,11 +9,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />
+		<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets='All' />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\DiceRoll.Model\DiceRoller.Model.csproj" />
+		<ProjectReference Include="..\DiceRoller.UiServices\DiceRoller.UiServices.csproj" />
 	</ItemGroup>
 
 </Project>

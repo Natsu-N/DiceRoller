@@ -1,10 +1,13 @@
 ﻿using System.Windows.Input;
 using DiceRoller.Model;
+using DiceRoller.UiServices;
 
 namespace DiceRoller.ViewModel
 {
     public class DiceRollViewModel
     {
+        private readonly IMessageService messageService;
+
         public List<ItemDice> ItemDiceList { get; set; } = new List<ItemDice>()
         {
             new ItemDice("D4", "0"),
@@ -18,8 +21,9 @@ namespace DiceRoller.ViewModel
 
         public ICommand RollCommand { get; }
 
-        public DiceRollViewModel()
+        public DiceRollViewModel(IMessageService messageService)
         {
+            this.messageService = messageService;
             RollCommand = new DelegateCommand(Roll);
         }
 
@@ -27,7 +31,7 @@ namespace DiceRoller.ViewModel
         {
             foreach (var item in ItemDiceList)
             {
-                item.Roll();
+                item.Roll(messageService);
             }
         }
     }

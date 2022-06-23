@@ -16,14 +16,16 @@
         <Setter Property="Control.FontWeight" Value="Bold"></Setter>
     </Style>
 
-    <Style TargetType="TextBlock" x:Key="Result" d:DataContext="{d:DesignInstance vm:ItemDice}">
+    <Style TargetType="ItemsControl" x:Key="Result" d:DataContext="{d:DesignInstance vm:ItemDice}">
+        <Setter Property="Margin" Value="5"></Setter>
+    </Style>
+
+    <Style TargetType="ScrollViewer" x:Key="ResultScrollViewer" d:DataContext="{d:DesignInstance vm:ItemDice}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#55000000"></Setter>
                 <Setter Property="Foreground" Value="White"></Setter>
             </Trigger>
-            <DataTrigger Binding="{Binding IsError}" Value="true">
-                <Setter Property="Foreground" Value="DarkRed"></Setter>
-            </DataTrigger>
         </Style.Triggers>
     </Style>
 
@@ -51,8 +53,8 @@
     </Style>
 
     <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
-        <Border BorderBrush="AliceBlue" BorderThickness="3" Opacity="0.3" CornerRadius="2"
-                    Background="AliceBlue" TextBlock.Foreground="Red" >
+        <Border BorderBrush="#55FFFFFF" BorderThickness="3"  CornerRadius="2"
+                    Background="#33FFFFFF" TextBlock.Foreground="#A00" TextBlock.FontFamily="Castellar" >
             <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"></ContentPresenter>
         </Border>
     </ControlTemplate>
