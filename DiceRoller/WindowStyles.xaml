@@ -1,0 +1,59 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vm="clr-namespace:DiceRoller.ViewModel;assembly=DiceRoller.ViewModel"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+
+    <SolidColorBrush x:Key="OpacityBrush" Opacity="0.2" Color="AliceBlue" ></SolidColorBrush>
+
+    <Style x:Key="CommonStyle">
+        <Setter Property="Control.Margin" Value="10"></Setter>
+        <Setter Property="Control.Padding" Value="10"></Setter>
+        <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="Result" d:DataContext="{d:DesignInstance vm:ItemDice}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Trigger>
+            <DataTrigger Binding="{Binding IsError}" Value="true">
+                <Setter Property="Foreground" Value="DarkRed"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource CommonStyle}">
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="15" Duration="0:0:0.5"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="10" Duration="0:0:0.5"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+        <Border BorderBrush="AliceBlue" BorderThickness="3" Opacity="0.3" CornerRadius="2"
+                    Background="AliceBlue" TextBlock.Foreground="Red" >
+            <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"></ContentPresenter>
+        </Border>
+    </ControlTemplate>
+</ResourceDictionary>

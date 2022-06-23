@@ -15,16 +15,14 @@ namespace DiceRoller.Model
             {"D100", new DelegateDice(100)},
         };
 
-        public string Roll(string diceKey, string number)
+        public IEnumerable<int> Roll(string diceKey, string number)
         {
-            var resultSet = "";
             var dice = GetDice(diceKey);
             var numberOfDice = GetDiceNumber(number);
             for (int i = 0; i < numberOfDice; i++)
             {
-                resultSet += dice.RollDice() + "  \n";
+                yield return dice.RollDice();
             }
-            return resultSet;
         }
 
         private int GetDiceNumber(string number)

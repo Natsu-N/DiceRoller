@@ -1,0 +1,8 @@
+<Project>
+	<PropertyGroup>
+		<LangVersion>10</LangVersion>
+		<Nullable>enable</Nullable>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<NoWarn>CS0067</NoWarn>
+	</PropertyGroup>
+</Project>
