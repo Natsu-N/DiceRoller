@@ -26,12 +26,12 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="White"></Setter>
                 </Trigger>
-                <DataTrigger Binding="{Binding ItemDiceList[].IsError}" Value="true">
-                    <Setter Property="Foreground" Value="Red"></Setter>
+                <DataTrigger Binding="{Binding IsError}" Value="true">
+                    <Setter Property="Foreground" Value="DarkRed"></Setter>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-
+ 
         <Style TargetType="Button" BasedOn="{StaticResource CommonStyle}">
             <Style.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
