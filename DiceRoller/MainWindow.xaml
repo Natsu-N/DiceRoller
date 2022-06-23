@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiceRoller"
-        xmlns:vm="clr-namespace:DiceRoller.VewModel;assembly=DiceRoller.VewModel"
+        xmlns:vm="clr-namespace:DiceRoller.ViewModel;assembly=DiceRoller.ViewModel"
         mc:Ignorable="d"
         Title="DiceRoller" Height="250" Width="440" MinHeight="250" MinWidth="440" MaxHeight="500" MaxWidth="880">
     <Window.DataContext>

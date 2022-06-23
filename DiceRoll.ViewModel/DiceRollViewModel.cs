@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using DiceRoller.Model;
 
-namespace DiceRoller.VewModel
+namespace DiceRoller.ViewModel
 {
     public class DiceRollViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace DiceRoller.VewModel
+namespace DiceRoller.ViewModel
 {
     internal class DelegateCommand: ICommand
     {

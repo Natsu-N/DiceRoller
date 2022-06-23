@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\DiceRoll.VewModel\DiceRoller.VewModel.csproj" />
+	  <ProjectReference Include="..\DiceRoll.ViewModel\DiceRoller.ViewModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

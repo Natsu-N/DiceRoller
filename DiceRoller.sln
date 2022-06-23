@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller", "DiceRoller\Di
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller.Model", "DiceRoll.Model\DiceRoller.Model.csproj", "{4A9349B6-AA00-42E7-9F72-29F315B5EA41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller.VewModel", "DiceRoll.VewModel\DiceRoller.VewModel.csproj", "{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiceRoller.ViewModel", "DiceRoll.ViewModel\DiceRoller.ViewModel.csproj", "{9C0749F0-F6DF-4F20-9BFE-AF8BE06BBBF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

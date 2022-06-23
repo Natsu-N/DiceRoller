@@ -2,7 +2,7 @@
 using DiceRoller.Model;
 using DiceRoller.Model.Exceptions;
 
-namespace DiceRoller.VewModel
+namespace DiceRoller.ViewModel
 {
     public class ItemDice: INotifyPropertyChanged
     {
