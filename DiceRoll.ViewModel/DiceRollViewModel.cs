@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
 using DiceRoller.Model;
 using DiceRoller.UiServices;
 
@@ -8,7 +9,7 @@ namespace DiceRoller.ViewModel
     {
         private readonly IMessageService messageService;
 
-        public List<ItemDice> ItemDiceList { get; set; } = new List<ItemDice>()
+        public ObservableCollection<ItemDice> ItemDiceList { get; set; } = new ObservableCollection<ItemDice>()
         {
             new ItemDice("D4", "0"),
             new ItemDice("D6", "0"),
