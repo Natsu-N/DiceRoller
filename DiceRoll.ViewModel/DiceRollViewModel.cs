@@ -21,11 +21,13 @@ namespace DiceRoller.ViewModel
         };
 
         public ICommand RollCommand { get; }
+        public ICommand ClearCommand { get; }
 
         public DiceRollViewModel(IMessageService messageService)
         {
             this.messageService = messageService;
             RollCommand = new DelegateCommand(Roll);
+            ClearCommand = new DelegateCommand(Clear);
         }
 
         public void Roll()
@@ -33,6 +35,14 @@ namespace DiceRoller.ViewModel
             foreach (var item in ItemDiceList)
             {
                 item.Roll(messageService);
+            }
+        }
+
+        public void Clear()
+        {
+            foreach (var item in ItemDiceList)
+            {
+                item.Clear();
             }
         }
     }

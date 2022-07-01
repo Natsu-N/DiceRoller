@@ -21,6 +21,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <Button Grid.Row="1" 
@@ -54,6 +55,13 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+            <Button Grid.Row="2" 
+                    Command="{Binding ClearCommand}" 
+                    Background="{StaticResource OpacityBrush}"
+                    IsDefault="True"
+                    Content="Clear all"
+                    Template="{StaticResource ButtonTemplate}"/>
         </Grid>
     </Viewbox>
 </Window>

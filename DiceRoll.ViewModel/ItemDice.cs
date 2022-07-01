@@ -35,6 +35,12 @@ namespace DiceRoller.ViewModel
             }
         }
 
+        public void Clear()
+        {
+            DiceNumber = "0";
+            Result = Array.Empty<int>();
+        }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
     }
